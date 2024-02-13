@@ -1,14 +1,9 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TarotCardProgram {
-    public static final Map<String, String > tarotCards= new HashMap<>();
-    public static final Map<String, List<String>> cardHistory = new HashMap<>();
-    private static final String FILENAME = "cardHistory.ser";
+    public static final Map<String, String> tarotCards = new HashMap<>();
     static {
         tarotCards.put("The Fool", "New beginnings, innocence, taking a leap of faith");
         tarotCards.put("The Magician", "Manifestation, skill, using ones power");

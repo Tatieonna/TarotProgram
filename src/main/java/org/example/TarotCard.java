@@ -1,8 +1,8 @@
 package org.example;
 
 public class TarotCard {
-        private String name;
-        private String meaning;
+    private String name;
+    private String meaning;
 
     public TarotCard(String name, String meaning) {
         this.name = name;

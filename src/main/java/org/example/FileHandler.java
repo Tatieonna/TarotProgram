@@ -1,39 +1,39 @@
 package org.example;
 
+import java.awt.*;
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class FileHandler {
-    private static final String FILENAME = "cardHistory.ser";
+    private static final String FILENAME = "src/main/java/org/example/cardHistory.ser";
 
-    public static void saveCardHistory(Map<TarotCard, List<String>> cardHistory) {
+    public static void saveCardHistory(Map<String, List<String>> cardHistory) {
         try (FileOutputStream fileOut = new FileOutputStream(FILENAME);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(cardHistory);
         } catch (IOException e) {
-            e.printStackTrace();
-            // Handle exception
+            System.err.println("Error saving card history: " + e.getMessage());
         }
     }
 
-    public static Map<TarotCard, List<String>> loadCardHistory() {
-        Map<TarotCard, List<String>> loadedHistory = new HashMap<>();
+    public static Map<String, List<String>> loadCardHistory() {
+        Map<String, List<String>> loadedHistory = new HashMap<>();
         try (FileInputStream fileIn = new FileInputStream(FILENAME);
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
             Object obj = objectIn.readObject();
             if (obj instanceof Map) {
-                loadedHistory = (Map<TarotCard, List<String>>) obj;
+                loadedHistory = (Map<String, List<String>>) obj;
             }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            // Handle exception or return empty map
+            System.err.println("Error loading card history: " + e.getMessage());
         }
         return loadedHistory;
     }
 
     // Other file I/O operations if needed
 }
+
 
 
