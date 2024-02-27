@@ -2,8 +2,15 @@ package org.example;
 
 import java.util.*;
 
+// Declares a public class named "TarotCardProgram"
 public class TarotCardProgram {
+    // Declares a public static final Map named 'tarotCards'. This will hold tarot card names as keys and their meanings as values
+    // 'final' means the reference to the map cannot be changed once it's initialized
+    // 'public' means the map can be accessed from any other class
+    // 'static' means the map belongs to the class itself rather then instances of the class
     public static final Map<String, String> tarotCards = new HashMap<>();
+    // A static initializer block. This block is executed when the class is loaded into memory.
+    // It's used here to populate the 'tarotCards' map with entries without needing to call a method or construct an instance
     static {
         tarotCards.put("The Fool", "New beginnings, innocence, taking a leap of faith");
         tarotCards.put("The Magician", "Manifestation, skill, using ones power");
@@ -87,8 +94,6 @@ public class TarotCardProgram {
         tarotCards.put("4 of Pentacles", "Material stability, practicality, building a secure future");
         tarotCards.put("3 of Pentacles", "Growth, expansion, multiplying your resources");
         tarotCards.put("2 of Pentacles", "Balance, choices, weighing material options");
-
-
 
     }
 }
